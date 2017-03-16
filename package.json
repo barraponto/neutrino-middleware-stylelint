@@ -1,0 +1,30 @@
+{
+  "name": "neutrino-preset-stylelint",
+  "version": "1.0.0",
+  "description": "Neutrino preset for adding Stylelint support.",
+  "main": "src/index.js",
+  "keywords": [
+    "neutrino",
+    "neutrino-preset",
+    "stylelint"
+  ],
+  "peerDependencies": {
+    "neutrino": "^4.0.0"
+  },
+  "author": "Capi Etheriel <barraponto@gmail.com> (https://barraponto.blog.br)",
+  "repository": "https://github.com/barraponto/neutrino-preset-stylelint",
+  "bugs": "https://github.com/barraponto/neutrino-preset-stylelint/issues",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "stylelint-webpack-plugin": "^0.7.0"
+  },
+  "devDependencies": {
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
