@@ -1,31 +1,41 @@
-# Neutrino Stylelint config
+# Neutrino Stylelint preset
 [![NPM version][npm-image]][npm-url] [![NPM downloads][npm-downloads]][npm-url] [![Join Slack][slack-image]][slack-url]
 
-`neutrino-config-stylelint` is a Neutrino config that adds basic support for
+`neutrino-config-stylelint` is a Neutrino preset that adds basic support for
 [Stylelint][stylelint].
 
 ## Documentation
 
-Install this config to your development dependencies, then set it in
+Install this preset to your development dependencies, then set it in
 `package.json`:
 
 ```json
   "config": {
-    "configs": [
-      "neutrino-config-stylelint"
-      "neutrino-config-web",
+    "presets": [
+      "neutrino-preset-stylelint"
     ]
   },
 ```
 
-Don't forget to create `stylelint.config.js` or add stylelint configuration to
-`package.json`. See [Styelint configuration documentation][stylelint-config-docs].
+Configuration can be done either through a `stylelint.config.js` file or in
+`package.json` like this:
 
-Also, don't forget to install any configs you want to use.
+```json
+"config": {
+  "stylelint": {
+    "extends": "stylelint-config-standard"
+  },
+  "presets": [
+    "neutrino-preset-stylelint",
+  ]
+},
+```
+
+See [Styelint configuration documentation][stylelint-config-docs].
+Also, don't forget to install any configs you want to extend.
 
 ## To Do
 
-- [ ] Create pre-configured configs for [stylelint-config-standard][stylelint-config-standard].
 - [ ] Support Neutrino 5.
 
 [stylelint]: https://stylelint.io/
