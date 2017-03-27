@@ -9,33 +9,40 @@ Install this preset to your development dependencies, then set it in
 `package.json`:
 
 ```json
-  "config": {
-    "presets": [
-      "neutrino-preset-stylelint"
+  "neutrino": {
+    "use": [
+      "neutrino-preset-stylelint",
+      "neutrino-preset-web",
     ]
   },
 ```
 
 Configuration can be done either through a `stylelint.config.js` file or in
-`package.json` like this:
+`package.json`:
 
 ```json
-"config": {
   "stylelint": {
     "extends": "stylelint-config-standard"
   },
-  "presets": [
-    "neutrino-preset-stylelint",
-  ]
+  "neutrino": {
+    "use": [
+      "neutrino-preset-stylelint",
+      "neutrino-preset-web",
+    ]
+  },
 },
 ```
 
+This preset doesn't depend on `neutrino-preset-web`, but it doesn't introduce
+any entry points on its own.
+
+## Neutrino 4
+
+Neutrino v4 is supported by the earlier release of this preset.
+Please consider updating to Neutrino 5.
+
 See [Styelint configuration documentation][stylelint-config-docs].
-Also, don't forget to install any configs you want to extend.
-
-## To Do
-
-- [ ] Support Neutrino 5.
+Also, don't forget to install any stylelint configs you want to extend.
 
 [stylelint]: https://stylelint.io/
 [stylelint-config-docs]: https://stylelint.io/user-guide/configuration/
