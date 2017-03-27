@@ -5,7 +5,7 @@ const defaultOptions = {
   files: ['**/*.+(css|scss|sass|less)'],
   // temporary fix for HMR issues with stylelint errors
   // (see JaKXz/stylelint-webpack-plugin#24)
-  failOnError: false,
+  failOnError: false
 };
 
 module.exports = ({ config }) => {
