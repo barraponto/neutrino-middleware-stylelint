@@ -23,6 +23,9 @@ The configuration will be picked up like any regular Stylelint project (see
 [Styelint configuration documentation][stylelint-config-docs]). For example, it
 could be added in `package.json`:
 
+You could also use a preset based on this middleware, such as
+[neutrino-preset-stylelint-standard][neutrino-preset-stylelint-standard].
+
 ```json
   "stylelint": {
     "extends": "stylelint-config-standard"
@@ -62,6 +65,7 @@ updating to Neutrino 5.
 [swp-hmr-issues]: https://github.com/JaKXz/stylelint-webpack-plugin/issues/24
 [swp-docs]: https://github.com/JaKXz/stylelint-webpack-plugin#options
 [neutrino-preset-stylelint]: https://www.npmjs.com/package/neutrino-preset-stylelint
+[neutrino-preset-stylelint-standard]: https://www.npmjs.com/package/neutrino-preset-stylelint-standard
 [npm-image]: https://img.shields.io/npm/v/neutrino-middleware-stylelint.svg
 [npm-downloads]: https://img.shields.io/npm/dt/neutrino-middleware-stylelint.svg
 [npm-url]: https://npmjs.org/package/neutrino-middleware-stylelint
