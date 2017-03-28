@@ -1,3 +1,4 @@
+const merge = require('deepmerge');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 
 const defaultOptions = {
@@ -8,9 +9,9 @@ const defaultOptions = {
   failOnError: false
 };
 
-module.exports = ({ config }) => {
+module.exports = ({ config }, options = {}) => {
   config
     .plugin('stylelint')
     // let project options override default options.
-    .use(StylelintPlugin, [defaultOptions]);
+    .use(StylelintPlugin, [merge(defaultOptions, options)]);
 };
