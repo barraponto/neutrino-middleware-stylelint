@@ -2,7 +2,7 @@
 [![NPM version][npm-image]][npm-url] [![NPM downloads][npm-downloads]][npm-url]
 [![Join Slack][slack-image]][slack-url]
 
-`neutrino-preset-stylelint` is a Neutrino middleware that adds basic support
+`neutrino-middleware-stylelint` is a Neutrino middleware that adds basic support
 for [Stylelint][stylelint].
 
 ## Documentation
@@ -62,8 +62,8 @@ updating to Neutrino 5.
 [swp-hmr-issues]: https://github.com/JaKXz/stylelint-webpack-plugin/issues/24
 [swp-docs]: https://github.com/JaKXz/stylelint-webpack-plugin#options
 [neutrino-preset-stylelint]: https://www.npmjs.com/package/neutrino-preset-stylelint
-[npm-image]: https://img.shields.io/npm/v/neutrino-preset-stylelint.svg
-[npm-downloads]: https://img.shields.io/npm/dt/neutrino-preset-stylelint.svg
-[npm-url]: https://npmjs.org/package/neutrino-preset-stylelint
+[npm-image]: https://img.shields.io/npm/v/neutrino-middleware-stylelint.svg
+[npm-downloads]: https://img.shields.io/npm/dt/neutrino-middleware-stylelint.svg
+[npm-url]: https://npmjs.org/package/neutrino-middleware-stylelint
 [slack-image]: https://neutrino-slack.herokuapp.com/badge.svg
 [slack-url]: https://neutrino-slack.herokuapp.com/
