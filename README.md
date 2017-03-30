@@ -1,4 +1,6 @@
 # Neutrino Stylelint middleware 
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/barraponto/neutrino-preset-stylelint.svg)](https://greenkeeper.io/)
 [![NPM version][npm-image]][npm-url] [![NPM downloads][npm-downloads]][npm-url]
 [![Join Slack][slack-image]][slack-url]
 
