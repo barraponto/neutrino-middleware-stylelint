@@ -5,41 +5,70 @@
 `neutrino-middleware-stylelint` is a Neutrino middleware that adds basic support
 for [Stylelint][stylelint].
 
+## Installation
+
+Installation requires a single command:
+
+`yarn add --dev neutrino-middleware-stylelint`
+
+If you want to extend a stylelint configuration, such as [the Stylelint
+standard configuration][stylelint-config-standard], don't forget to install it
+too.
+
+`yarn add --dev stylelint-config-standard`
+
+(Yet, if that's all you really want, use our [pre-configured
+preset][neutrino-preset-stylelint-standard] instead.)
+
 ## Documentation
 
-Install this middleware to your development dependencies, then set it in
-`package.json`:
+Using this middleware requires configuration through options. It is not
+designed to be used on its own, instead it should be configured in your own
+preset.
 
-```json
-  "neutrino": {
-    "use": [
-      "neutrino-middleware-stylelint",
-      "neutrino-preset-web",
-    ]
-  },
+For example, in `neutrino-stylelint.js`, write this configuration:
+
+```javascript
+const stylelint = require('neutrino-middleware-stylelint');
+
+module.exports = (neutrino) => {
+  neutrino.use(stylelint, {
+    config: {
+      extends: require.resolve('stylelint-config-standard'),
+      rules: {
+        "indentation": "tab",
+        "number-leading-zero": null,
+        "property-no-unknown": [ true, {
+          "ignoreProperties": [
+            "composes"
+          ]
+        }],
+        "unit-whitelist": ["em", "rem", "s"]
+      }
+    }
+  });
+};
+
 ```
 
-The configuration will be picked up like any regular Stylelint project (see
-[Styelint configuration documentation][stylelint-config-docs]). For example, it
-could be added in `package.json`:
-
-You could also use a preset based on this middleware, such as
-[neutrino-preset-stylelint-standard][neutrino-preset-stylelint-standard].
+Then configure `package.json` to have Neutrino pick up your custom preset:
 
 ```json
-  "stylelint": {
-    "extends": "stylelint-config-standard"
-  },
-  "neutrino": {
-    "use": [
-      "neutrino-middleware-stylelint",
-      "neutrino-preset-web",
-    ]
-  },
-},
+"neutrino": {
+  "use": [
+    "neutrino-preset-web",
+    "./neutrino-stylelint.js"
+  ]
+}
 ```
 
-BTW, don't forget to install any stylelint configs you want to extend.
+See [neutrino advanced configuration][neutrino-advanced-configuration] for more
+details.
+
+## Options
+
+Every [stylelint plugin option][swp-docs] can be overwritten by setting in the
+middleware options.
 
 ## Defaults
 
@@ -51,12 +80,6 @@ This middleware overrides some defaults from `stylelint-webpack-plugin`:
 
 You can see the other default values in [the stylelint-webpack-plugin
 docs][swp-docs].
-
-## Neutrino 4
-
-Neutrino v4 is supported by
-[neutrino-preset-stylelint][neutrino-preset-stylelint]. Please consider
-updating to Neutrino 5.
 
 
 [stylelint]: https://stylelint.io/
