@@ -81,6 +81,31 @@ This middleware overrides some defaults from `stylelint-webpack-plugin`:
 You can see the other default values in [the stylelint-webpack-plugin
 docs][swp-docs].
 
+## stylelint.config.js
+
+`neutrino-middleware-stylelint` also provides a method for getting the
+Stylelint configuration suitable for use in a stylelint.config.js file.
+Typically this is used for providing hints or fix solutions to the development
+environment, e.g. IDEs and text editors. Doing this requires creating an
+instance of the Neutrino API and providing the presets used. If you keep this
+information in neutrino.use in package.json, this should be relatively
+straightforward.
+
+Example: Create a stylelint.config.js file in the root of the project.
+
+```javascript
+// .eslintrc.js
+const { Neutrino } = require('neutrino');
+const pkg = require('./package.json');
+const api = Neutrino();
+
+pkg.neutrino.use
+  .map(require)
+  .map(api.use);
+
+module.exports = api.stylelintrc();
+```
+
 
 [stylelint]: https://stylelint.io/
 [stylelint-config-docs]: https://stylelint.io/user-guide/configuration/
