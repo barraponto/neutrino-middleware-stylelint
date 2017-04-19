@@ -4,6 +4,8 @@ const StylelintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = (neutrino, options = {}) => {
   const defaultOptions = {
+    // disable regular postcss configuration loading
+    config: {},
     // overrides Sass-only defaults (see JaKXz/stylelint-webpack-plugin#8)
     files: ['**/*.+(css|scss|sass|less)'],
     // only process source files (see barraponto/neutrino-preset-stylelint-standard/pull/1)
