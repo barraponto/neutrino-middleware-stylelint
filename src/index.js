@@ -11,7 +11,7 @@ module.exports = (neutrino, options = {}) => {
     // disable regular postcss configuration loading
     config: {},
     // overrides Sass-only defaults (see JaKXz/stylelint-webpack-plugin#8)
-    files: ['**/*.+(css|scss|sass|less)'],
+    files: options.files || ['**/*.+(css|scss|sass|less)'],
     // only process source files (see barraponto/neutrino-preset-stylelint-standard/pull/1)
     context: neutrino.options.source,
     // temporary fix for HMR issues with stylelint errors
