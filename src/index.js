@@ -3,8 +3,8 @@ const StylelintPlugin = require('stylelint-webpack-plugin');
 
 
 module.exports = (neutrino, options = {}) => {
-  const stylelintrc = (config) => config.plugin('stylelint').get('args')[0].config;
-  neutrino.register('stylelintrc', () => stylelintrc(neutrino.config))
+  const stylelintrc = config => config.plugin('stylelint').get('args')[0].config;
+  neutrino.register('stylelintrc', () => stylelintrc(neutrino.config));
 
   const defaultOptions = {
     // disable regular postcss configuration loading
