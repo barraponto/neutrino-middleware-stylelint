@@ -3,9 +3,8 @@ const StylelintPlugin = require('stylelint-webpack-plugin');
 
 
 module.exports = (neutrino, options = {}) => {
-  // eslint-disable-next-line no-param-reassign
-  neutrino.stylelintrc = () => neutrino.config.plugin('stylelint')
-    .get('args')[0].config;
+  const stylelintrc = (config) => config.plugin('stylelint').get('args')[0].config;
+  neutrino.register('stylelintrc', () => stylelintrc(neutrino.config))
 
   const defaultOptions = {
     // disable regular postcss configuration loading
