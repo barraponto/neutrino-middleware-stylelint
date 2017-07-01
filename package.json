@@ -12,8 +12,8 @@
     "neutrino": "^6.1.4"
   },
   "author": "Capi Etheriel <barraponto@gmail.com> (https://barraponto.blog.br)",
-  "repository": "https://github.com/barraponto/neutrino-preset-stylelint",
-  "bugs": "https://github.com/barraponto/neutrino-preset-stylelint/issues",
+  "repository": "https://github.com/barraponto/neutrino-middleware-stylelint",
+  "bugs": "https://github.com/barraponto/neutrino-middleware-stylelint/issues",
   "license": "GPL-3.0",
   "dependencies": {
     "deepmerge": "^1.4.4",
