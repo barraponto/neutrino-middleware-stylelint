@@ -1,6 +1,6 @@
 {
   "name": "neutrino-middleware-stylelint",
-  "version": "3.0.0",
+  "version": "4.0.0-rc.1",
   "description": "Neutrino middleware for adding Stylelint support.",
   "main": "src/index.js",
   "keywords": [
@@ -9,7 +9,7 @@
     "stylelint"
   ],
   "peerDependencies": {
-    "neutrino": "^5.0.0"
+    "neutrino": "^6.1.4"
   },
   "author": "Capi Etheriel <barraponto@gmail.com> (https://barraponto.blog.br)",
   "repository": "https://github.com/barraponto/neutrino-preset-stylelint",
@@ -24,8 +24,8 @@
     "cz-conventional-changelog": "^2.0.0",
     "eslint": "3.19.0",
     "eslint-plugin-prettier": "^2.1.2",
-    "neutrino": "^5.0.1",
-    "neutrino-preset-airbnb-base": "^5.0.1",
+    "neutrino": "^6.1.4",
+    "neutrino-preset-airbnb-base": "^6.1.4",
     "prettier": "^1.5.2"
   },
   "config": {
