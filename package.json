@@ -1,6 +1,6 @@
 {
   "name": "neutrino-middleware-stylelint",
-  "version": "3.0.0-beta.3",
+  "version": "3.0.0",
   "description": "Neutrino middleware for adding Stylelint support.",
   "main": "src/index.js",
   "keywords": [
