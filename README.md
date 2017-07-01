@@ -26,40 +26,25 @@ Using this middleware requires configuration through options. It is not
 designed to be used on its own, instead it should be configured in your own
 preset.
 
-For example, in `neutrino-stylelint.js`, write this configuration:
+For example, in `.neutrinorc.js`, write this configuration:
 
 ```javascript
-const stylelint = require('neutrino-middleware-stylelint');
-
-module.exports = (neutrino) => {
-  neutrino.use(stylelint, {
-    config: {
-      extends: require.resolve('stylelint-config-standard'),
-      rules: {
-        "indentation": "tab",
-        "number-leading-zero": null,
-        "property-no-unknown": [ true, {
-          "ignoreProperties": [
-            "composes"
-          ]
-        }],
-        "unit-whitelist": ["em", "rem", "s"]
+module.exports = {
+  use: [
+    ['neutrino-middleware-stylelint', {
+      config: {
+        extends: require.resolve('stylelint-config-standard'),
+        rules: {
+          "indentation": "tab",
+          "number-leading-zero": null,
+          "property-no-unknown": [true, {"ignoreProperties": ["composes"]}],
+          "unit-whitelist": ["em", "rem", "s"]
+        }
       }
-    }
-  });
+    }]
+  ],
 };
 
-```
-
-Then configure `package.json` to have Neutrino pick up your custom preset:
-
-```json
-"neutrino": {
-  "use": [
-    "neutrino-preset-web",
-    "./neutrino-stylelint.js"
-  ]
-}
 ```
 
 See [neutrino advanced configuration][neutrino-advanced-configuration] for more
@@ -84,26 +69,17 @@ docs][swp-docs].
 ## stylelint.config.js
 
 `neutrino-middleware-stylelint` also provides a method for getting the
-Stylelint configuration suitable for use in a stylelint.config.js file.
+Stylelint configuration suitable for use in a `stylelint.config.js` file.
 Typically this is used for providing hints or fix solutions to the development
-environment, e.g. IDEs and text editors. Doing this requires creating an
-instance of the Neutrino API and providing the presets used. If you keep this
-information in neutrino.use in package.json, this should be relatively
-straightforward.
+environment, e.g. IDEs and text editors.
 
-Example: Create a stylelint.config.js file in the root of the project.
+Create a stylelint.config.js file in the root of the project.
 
 ```javascript
-// .eslintrc.js
+// styleling.config.js
 const { Neutrino } = require('neutrino');
-const pkg = require('./package.json');
 const api = Neutrino();
-
-pkg.neutrino.use
-  .map(require)
-  .map(api.use);
-
-module.exports = api.stylelintrc();
+module.exports = api.call('stylelintrc');
 ```
 
 
@@ -112,7 +88,7 @@ module.exports = api.stylelintrc();
 [stylelint-config-standard]: https://github.com/stylelint/stylelint-config-standard
 [swp-hmr-issues]: https://github.com/JaKXz/stylelint-webpack-plugin/issues/24
 [swp-docs]: https://github.com/JaKXz/stylelint-webpack-plugin#options
-[neutrino-preset-stylelint]: https://www.npmjs.com/package/neutrino-preset-stylelint
+[neutrino-middleware-stylelint]: https://www.npmjs.com/package/neutrino-middleware-stylelint
 [neutrino-preset-stylelint-standard]: https://www.npmjs.com/package/neutrino-preset-stylelint-standard
 [npm-image]: https://img.shields.io/npm/v/neutrino-middleware-stylelint.svg
 [npm-downloads]: https://img.shields.io/npm/dt/neutrino-middleware-stylelint.svg
